@@ -1,0 +1,1 @@
+Same code as the main version, but without that complicated and nasty functin array... replaced by good old if statements. This is a VERY GOOD SOLUTION for any project you might have to do. It just doesn't scale up quite as easily as the other one
