@@ -1,40 +1,40 @@
-def add_contact(nameToPhone):
+def add_contact(name_to_phone):
     name = input("Enter name : ")
     phone = input("Enter phone number : ")
-    nameToPhone[name] = phone
+    name_to_phone[name] = phone
 
-def query_phone(nameToPhone):
+def query_phone(name_to_phone):
     name = input("Enter name : ")
-    if name not in nameToPhone.keys():
+    if name not in name_to_phone.keys():
         print(f"{name} not found in contacts")
         return
-    print(f"{name}'s phone number is {nameToPhone[name]}")
+    print(f"{name}'s phone number is {name_to_phone[name]}")
 
-def list_contacts(nameToPhone):
-    names = sorted(nameToPhone.keys())
+def list_contacts(name_to_phone):
+    names = sorted(name_to_phone.keys())
     for name in names:
-        print(name," <--> ",nameToPhone[name])
+        print(name," <--> ", name_to_phone[name])
 
 
-validInputs = ["add","query","list","exit"]
-assiociatedActions = [add_contact,query_phone,list_contacts]
+valid_inputs = ["add", "query", "list", "exit"]
+associated_actions = [add_contact, query_phone, list_contacts]
 
 def getValidCommand():
-    userInput = input(f"Enter one of these commands : {validInputs}\n")
-    if userInput in validInputs:
-        return userInput
+    user_input = input(f"Enter one of these commands : {valid_inputs}\n")
+    if user_input in valid_inputs:
+        return user_input
     else:
         print("unknown command")
         return getValidCommand()
 
 
 def main():
-    nameToPhone = {}
+    name_to_phone = {}
     while True:
-        usrInput = getValidCommand()
-        if usrInput == "exit":
+        usr_input = getValidCommand()
+        if usr_input == "exit":
             break
-        assiociatedActions[validInputs.index(usrInput)](nameToPhone)
+        associated_actions[valid_inputs.index(usr_input)](name_to_phone)
     return 0
 
 if __name__ == "__main__":
